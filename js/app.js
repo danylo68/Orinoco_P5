@@ -1,15 +1,6 @@
 
-
-
-// variable product
-  let _id = [];
-  let lenses = [];
-  let name = [];
-  let price = [];
-  let description = [];
-  let imageUrl = []; 
-
-//requet get fetch
+//requet get fetch pour appel des produits de l'API   ////////////
+function callProduct() {
 
 fetch("http://localhost:3000/api/cameras/")
 .then((response) => {
@@ -48,8 +39,9 @@ return response.json()
   
   })
  
+ };
  
- 
+ callProduct()
 
  
  
