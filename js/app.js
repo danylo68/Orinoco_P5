@@ -41,7 +41,7 @@ return response.json()
  
  };
  
- callProduct()
+ callProduct();
 
  
  
