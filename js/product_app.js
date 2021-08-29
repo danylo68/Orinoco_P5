@@ -1,13 +1,13 @@
-//recup chaine requète url
+//recupération chaine requète url
 const QueryProduct = window.location.search;
 console.log(QueryProduct);
 
 //recup l'ID
 const id = QueryProduct.slice(4);
 console.log(id);
-
 //=========================================
-//fonction récupération du fetch avec l'id 
+//fonction fetch avec récupération de l'id 
+
 async function myCam() {
     await fetch("http://localhost:3000/api/cameras/" + id)
         .then((response) => {
@@ -20,7 +20,7 @@ async function myCam() {
             console.log(data);
             // boucle et injection de la variable  pour "lenses options", O pour options
             let l = `<form>
-            <label for="option_produit"></label>
+            <label for="option_produit">Lentilles</label>
             <select name="opt_product" id="opt_product">`
 
             for (let O = 0; O < data.lenses.length; O++) {
@@ -32,16 +32,19 @@ async function myCam() {
             </form>`
                 //injection de la variable html produit vers l'HTML 
             let html = `<div class="row">
-                  <div class="col-12 col-lg-8 pt-5 pb-5">
+                  <div class="col-12 col-lg-12 pt-5 pb-5">
                     <div class="media border rounded bg-light text-dark">
                     <div id="camLenses" class="media-body text-center pt-3 p-3">                   
-                      <img id="imageUrl"  class="img-fluid" src=${data.imageUrl} width="550" height="350" alt="camera" />              
+                      <img id="imageUrl"  class="img-fluid" src=${data.imageUrl} width="500" height="350" alt="camera" />              
                            <h4 id="name">${data.name}</h4>
-                           <p>Prix : <span id="price">${data.price /100} € </span></p>                               
-                           <p>Description : <span id="description">${data.description}</span></p>
+                           <h5>Prix : <span id="price">${data.price /100},00 € </span></h5>                               
+                           <p id="description">${data.description}</p>
+                          
                           ${l}
-                         <p><input  onclick="addItem()"  class="btn btn-outline-success rounded-borders" type="submit" name="buttonGet"></p>
-                         <p><input id="input_quantity" type="number" class="input" value"1" min="1" max="10"></p>
+                           
+                          <span><label for="quantitées_produits">quantitée</label><input id="input_quantity" type="number" class="input" value"1" min="0" max="10"  pt-3 ></span>
+                         <p><input  onclick="addItem()"  class="btn btn-success rounded-borders" type="submit" name="buttonGet"></p>
+                         
                               </div>
                             </div>
                           </div>
@@ -50,13 +53,10 @@ async function myCam() {
             document.getElementById("container").innerHTML = html
             return data
         });
-}
-//=================================================
-//execution de la fonction pour afficher le produit
+};
 myCam();
-//////////////////////////////////////////////////////////////////////
-/////////////////////////////////////////////////////////////////////
-//1-recupérer la valeur//
+
+
 //config et recuperation de la valeur du btn submit
 let qtyProduct = '';
 let btnProduct = '';
@@ -69,6 +69,7 @@ function addItem() {
         .then((data) => {
             console.log("toto");
             qtyProduct = parseInt(document.getElementById("input_quantity").value);
+
             let myCard = localStorage.getItem("myCard");
 
             let parseCard = [];
@@ -88,18 +89,17 @@ function addItem() {
             console.log(parseCard);
             let jsonParseCard = JSON.stringify(filterCArt);
             localStorage.setItem("myCard", jsonParseCard)
-            let n = 0;
 
+            let n = 0;
             while (n < qtyProduct) {
                 addCard();
                 n++;
             };
 
             alert("Ajout Produit");
-           
-        });
-
-}
+            console.log(n);
+        })
+};
 //================================================== 
 // Ajouter la selection avec l'option lenses
 //id du produit 
@@ -110,41 +110,12 @@ function addCard() {
         })
         .then((data) => {
             data.lenses = document.getElementById("opt_product").value;
-            // // quantityProd = document.getElementById("buttonGet");
-            // console.log(quantityProd);
-            // //localStorage.setItem(key,valeur);
-            //localStorage.setItem("myCard", myJsonData);
-            //==mettre la selection dans le local storage== 
+
             let myCard = localStorage.getItem("myCard");
             //**********************************************/
-            // quantité input 
-            // function counterStorage() {
-
-            //     let quantityPro = qtyProduct;
-            //     console.log(quantityProd);
-            //     // recup du local storage
-            // let quantityProd = JSON.parse(localStorage.getItem("myCard"));
-            // quantityProd = [data];
-            // let newQuantityProd = quantityProd.splice(0, 4)
-            // console.log(newQuantityProd);
-
-            //     let getStorage = quantityProd.map(numberProd => {
-            //         if (quantityProd === numberProd.id) {
-            //             return {...numberProd,
-            //                 imageUrl: numberProd.imageUrl,
-            //                 lenses: numberProd.lenses,
-            //                 name: numberProd.name,
-            //                 price: numberProd.price,
-            //             }
-            //         }
-            //         return numberProd * addItem;
-            //     })
-            //     // if (getStorageIn === )
-            //     localStorage.removeItem("myCard");
-            // }
 
             //condition pour le local storage================================
-            //si le localstorage est vide alors je crée un variable carstorage qui contient un tableau qui contient la valeur data
+            //si le localstorage est vide alors je crée un variable carstorage qui contient un objet = la valeur 'data'
             if (myCard === null) {
                 let cartStorage = [data];
                 //================================================               
@@ -157,14 +128,12 @@ function addCard() {
                 let parseCard = JSON.parse(myCard);
 
                 parseCard.push(data);
-             
+
                 let jsonParseCard = JSON.stringify(parseCard);
                 localStorage.setItem("myCard", jsonParseCard);
-
             }
-            
-        });
 
+        });
 };
 
 
