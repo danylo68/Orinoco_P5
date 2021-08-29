@@ -1,0 +1,114 @@
+@font-face {
+  font-family: 'special_eliteregular';
+  src: url("specialelite-webfont.woff2") format("woff2"), url("specialelite-webfont.woff") format("woff");
+  font-weight: normal;
+  font-style: normal;
+}
+
+body {
+  width: 100%;
+  margin: auto;
+  background-color: #bcbcbc;
+  font-family: "special_eliteregular", Arial, sans-serif;
+}
+
+body h1 {
+  font-size: 40px;
+  margin: 30px;
+  text-align: center;
+}
+
+body h1 p {
+  font-family: "special_eliteregular", Arial, sans-serif;
+}
+
+.main {
+  width: 100%;
+  height: auto;
+  border: solid 20px;
+  margin: auto;
+  color: white;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: flex-start;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+
+.main img {
+  z-index: 1;
+  padding: 15px;
+  -o-object-fit: cover;
+     object-fit: cover;
+}
+
+.main .row {
+  z-index: 2;
+}
+
+.main .media {
+  -webkit-box-shadow: 5px 5px 12px black;
+          box-shadow: 5px 5px 12px black;
+}
+
+.logo__head {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: flex-start;
+  height: auto;
+  padding-left: 160px;
+}
+
+.container {
+  display: block;
+  width: auto;
+  height: auto;
+  font-size: 25px;
+}
+
+.container #name {
+  width: auto;
+  height: auto;
+}
+
+.container #prices {
+  width: auto;
+  height: auto;
+}
+
+.container #_id {
+  width: auto;
+  height: auto;
+  font-size: 10px;
+}
+
+.container .description {
+  width: auto;
+}
+
+.btn {
+  width: 85%;
+  height: 55px;
+}
+
+.navbar {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: baseline;
+      -ms-flex-align: baseline;
+          align-items: baseline;
+}
+
+.navbar-brand {
+  font-size: 35px;
+}
+/*# sourceMappingURL=P5-style.css.map */
