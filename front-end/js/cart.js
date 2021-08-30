@@ -73,11 +73,11 @@ function showCart() {
         <thead class="thead">
           <tr>
           <td><img id="imageUrl"  class="img-fluid " src=${uniqueProduct[i].imageUrl} width="150" height="30" alt="camera" /></td>
-            <td><h5 id="name">${uniqueProduct[i].name}</h5></td>
-            <td><h5 id="lenses">${uniqueProduct[i].lenses}</h5></td>
-            <td><h5 id="price">${uniqueProduct[i].counterPrice/100},00 € </h5></td>
-            <td><h5 id="Quantity">${uniqueProduct[i].counter}</h5></td>
-            <td><button id="remv_item" onclick="remvProduct('${uniqueProduct[i]._id}', '${uniqueProduct[i].lenses}')" class="btn"><i class="fa fa-trash"></i></button></td>
+            <td class="align-middle"><h5 id="name">${uniqueProduct[i].name}</h5></td>
+            <td class="align-middle"><h5 id="lenses">${uniqueProduct[i].lenses}</h5></td>
+            <td class="align-middle"><h5 id="price">${uniqueProduct[i].counterPrice/100},00 € </h5></td>
+            <td class="align-middle"><h5 id="Quantity">${uniqueProduct[i].counter}</h5></td>
+            <td class="align-middle"><button id="remv_item" onclick="remvProduct('${uniqueProduct[i]._id}', '${uniqueProduct[i].lenses}')" class="btn"><i class="fa fa-trash"></i></button></td>
           </tr>
           </thead>
         </table> `
@@ -108,9 +108,9 @@ showCart()
 //===================================variable btn submit===========================
 const myFormHtml =
     `<div class="cart_submit">
-    <div class="row">
+    <div class="row col-12 text-align-center">
         <div class="col-md-6 pt-4 pb-4">    
-        <input type="submit" id="submit" class="btn-success rounded-borders" name="submit" value="Envoyer"/>      
+        <input type="submit" id="submit" class="btn-success rounded-borders" name="submit" value="Confirmation"/>      
         </div>
     </div>
 </div> `

@@ -1,6 +1,6 @@
 @font-face {
-    font-family: 'special_eliteregular';
-    src: url('specialelite-webfont.woff2') format('woff2'), url('specialelite-webfont.woff') format('woff');
+    font-family: "special_eliteregular";
+    src: url("specialelite-webfont.woff2") format("woff2"), url("specialelite-webfont.woff") format("woff");
     font-weight: normal;
     font-style: normal;
 }
@@ -12,8 +12,8 @@ body {
     font-family: "special_eliteregular", Arial, sans-serif;
     h1 {
         font-size: 40px;
-        margin: 30px;
-        text-align: center;
+        margin-left: 0px;
+
         p {
             font-family: "special_eliteregular", Arial, sans-serif;
         }
@@ -69,9 +69,9 @@ body {
 }
 
 .btn {
-    width: 100px;
+    width: 184px;
     height: 45px;
-    margin-top: 7px;
+    margin-top: 10px;
 }
 
 .logo__head {
@@ -80,29 +80,25 @@ body {
     height: auto;
     padding-left: 160px;
 }
+.opt_product {
+    width: 93px;
+}
 
 .quantity {
     display: flex;
     justify-content: center;
     align-content: center;
-    height: 45px;
+    height: 40px;
     align-items: center;
     font-size: 17px;
-    border: solid 2px #000;
-    width: 50px;
+
     input {
         border-top: 1px solid #000;
         border-bottom: 1px solid #000;
         text-align: center;
-        width: 10px;
-        font-size: 20px;
+        width: 93px;
+        font-size: 17px;
         color: #000;
         font-weight: 300;
-        font-size: 17px;
     }
-}
-
-.quantity {
-    display: flex;
-    flex-direction: row;
 }

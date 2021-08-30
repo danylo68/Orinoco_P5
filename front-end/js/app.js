@@ -20,7 +20,7 @@ fetch("http://localhost:3000/api/cameras/")
                        <h5 id="lenses">${data[i].lenses}</h5>
                          <p id="price">${data[i].price/100}, 00€</p>                       
                          <h5 id="description">${data[i].description}</h5>
-                        <a href="./produit.html?id=${data[i]._id}" class="btn-lg btn-dark pt-2 p-2 rounded-borders">Selection</a>
+                        <a href="./produit.html?id=${data[i]._id}" class="btn-lg btn-primary pt-2 p-2 rounded-borders">Selection</a>
                        </div>
                      <div>
                       </div>

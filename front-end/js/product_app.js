@@ -21,7 +21,7 @@ async function myCam() {
             // boucle et injection de la variable  pour "lenses options", O pour options
             let l = `<form>
             <label for="option_produit">Lentilles</label>
-            <select name="opt_product" id="opt_product">`
+            <select class="opt_product" name="opt_product" id="opt_product">`
 
             for (let O = 0; O < data.lenses.length; O++) {
                 l += `                 
@@ -42,8 +42,8 @@ async function myCam() {
                           
                           ${l}
                            
-                          <span><label for="quantitées_produits">quantitée</label><input id="input_quantity" type="number" class="input" value"1" min="0" max="10"  pt-3 ></span>
-                         <p><input  onclick="addItem()"  class="btn btn-success rounded-borders" type="submit" name="buttonGet"></p>
+                          <span class="quantity"><label for="quantitées_produits">Quantitée</label><input id="input_quantity" type="number" class="input" value="1" min="1" max="10"  pt-3 ></span>
+                         <p><input  onclick="addItem()"  class="btn btn-primary rounded-borders" type="submit" name="buttonGet"></p>
                          
                               </div>
                             </div>
