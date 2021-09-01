@@ -136,6 +136,7 @@ function orderCam() {
     const formElemt = document.querySelector("#get_form");
 
     formElemt.addEventListener("submit", async(e) => {
+    window.location.assign("order.html");
         e.preventDefault();
 
         // variable pour approuvé la validation
