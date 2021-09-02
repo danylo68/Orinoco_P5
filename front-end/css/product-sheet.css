@@ -1,130 +1,134 @@
 @font-face {
-    font-family: "special_eliteregular";
-    src: url("specialelite-webfont.woff2") format("woff2"), url("specialelite-webfont.woff") format("woff");
-    font-weight: normal;
-    font-style: normal;
+  font-family: "special_eliteregular";
+  src: url("specialelite-webfont.woff2") format("woff2"), url("specialelite-webfont.woff") format("woff");
+  font-weight: normal;
+  font-style: normal;
 }
 
 body {
-    width: 100%;
-    margin: auto;
-    background-color: #bcbcbc;
-    font-family: "special_eliteregular", Arial, sans-serif;
+  width: 100%;
+  margin: auto;
+  background-color: #bcbcbc;
+  font-family: "special_eliteregular", Arial, sans-serif;
 }
 
 body h1 {
-    font-size: 40px;
-    margin-left: 0px;
+  font-size: 40px;
+  margin-left: 0px;
 }
 
 body h1 p {
-    font-family: "special_eliteregular", Arial, sans-serif;
+  font-family: "special_eliteregular", Arial, sans-serif;
 }
 
 .main {
-    width: 100%;
-    height: auto;
-    border: solid 20px;
-    margin: auto;
-    color: white;
-    display: -webkit-box;
-    display: -ms-flexbox;
-    display: flex;
-    -webkit-box-pack: start;
-    -ms-flex-pack: start;
-    justify-content: flex-start;
-    -webkit-box-orient: vertical;
-    -webkit-box-direction: normal;
-    -ms-flex-direction: column;
-    flex-direction: column;
+  width: 100%;
+  height: auto;
+  border: solid 20px;
+  margin: auto;
+  color: white;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: flex-start;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
 }
 
 .main img {
-    z-index: 1;
-    padding: 15px;
-    -o-object-fit: cover;
-    object-fit: cover;
+  z-index: 1;
+  padding: 15px;
+  -o-object-fit: cover;
+     object-fit: cover;
 }
 
 .main .row {
-    z-index: 2;
+  z-index: 2;
 }
 
 .main .media {
-    -webkit-box-shadow: 5px 5px 12px black;
-    box-shadow: 5px 5px 12px black;
+  -webkit-box-shadow: 5px 5px 12px black;
+          box-shadow: 5px 5px 12px black;
 }
 
 .container {
-    width: auto;
-    height: auto;
-    font-size: 15px;
+  width: auto;
+  height: auto;
+  font-size: 15px;
 }
 
 .container #name {
-    width: auto;
-    height: auto;
+  width: auto;
+  height: auto;
 }
 
 .container #prices {
-    width: auto;
-    height: auto;
+  width: auto;
+  height: auto;
 }
 
 .container #_id {
-    width: auto;
-    height: auto;
-    font-size: 10px;
+  width: auto;
+  height: auto;
+  font-size: 10px;
 }
 
 .container .description {
-    width: auto;
+  width: auto;
+}
+
+.fa-solid {
+  color: linear-gradient(#cc7c51, #945eed);
 }
 
 .btn {
-    width: 184px;
-    height: 45px;
-    margin-top: 10px;
+  width: 184px;
+  height: 45px;
+  margin-top: 10px;
 }
 
 .logo__head {
-    display: -webkit-box;
-    display: -ms-flexbox;
-    display: flex;
-    -webkit-box-pack: start;
-    -ms-flex-pack: start;
-    justify-content: flex-start;
-    height: auto;
-    padding-left: 160px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: flex-start;
+  height: auto;
+  padding-left: 160px;
 }
 
 .opt_product {
-    width: 93px;
+  width: 93px;
 }
 
 .quantity {
-    display: -webkit-box;
-    display: -ms-flexbox;
-    display: flex;
-    -webkit-box-pack: center;
-    -ms-flex-pack: center;
-    justify-content: center;
-    -ms-flex-line-pack: center;
-    align-content: center;
-    height: 40px;
-    -webkit-box-align: center;
-    -ms-flex-align: center;
-    align-items: center;
-    font-size: 17px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -ms-flex-line-pack: center;
+      align-content: center;
+  height: 40px;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  font-size: 17px;
 }
 
 .quantity input {
-    border-top: 1px solid #000;
-    border-bottom: 1px solid #000;
-    text-align: center;
-    width: 93px;
-    font-size: 17px;
-    color: #000;
-    font-weight: 300;
+  border-top: 1px solid #000;
+  border-bottom: 1px solid #000;
+  text-align: center;
+  width: 93px;
+  font-size: 17px;
+  color: #000;
+  font-weight: 300;
 }
 /*# sourceMappingURL=product-sheet.css.map */

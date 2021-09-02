@@ -1,12 +1,8 @@
 //recupération chaine requète url
 const QueryProduct = window.location.search;
-console.log(QueryProduct);
 
-//recup l'ID
 const id = QueryProduct.slice(4);
-console.log(id);
 //=========================================
-//fonction fetch avec récupération de l'id 
 
 async function myCam() {
     await fetch("http://localhost:3000/api/cameras/" + id)
@@ -15,10 +11,7 @@ async function myCam() {
             return response.json()
         })
         .then((data) => {
-
-            //injection ID et api dans HTML                         
-            console.log(data);
-            // boucle et injection de la variable  pour "lenses options", O pour options
+          
             let l = `<form>
             <label for="option_produit">Lentilles</label>
             <select class="opt_product" name="opt_product" id="opt_product">`
@@ -30,7 +23,7 @@ async function myCam() {
             }
             l += `</select>
             </form>`
-                //injection de la variable html produit vers l'HTML 
+                
             let html = `<div class="row">
                   <div class="col-12 col-lg-12 pt-5 pb-5">
                     <div class="media border rounded bg-light text-dark">
@@ -42,8 +35,8 @@ async function myCam() {
                           
                           ${l}
                            
-                          <span class="quantity"><label for="quantitées_produits">Quantitée</label><input id="input_quantity" type="number" class="input" value="1" min="1" max="10"  pt-3 ></span>
-                         <p><input  onclick="addItem()"  class="btn btn-primary rounded-borders" type="submit" name="buttonGet"></p>
+                          <span class="quantity"><label for="quantitées_produits">Quantitée</label><input id="input_quantity" type="number" class="input" value="1" min="1" max="10" pt-3 ></span>
+                         <a><input onclick="addItem()" class="btn btn-primary rounded-borders" type="submit" name="buttonGet"></a>
                          
                               </div>
                             </div>
@@ -55,19 +48,16 @@ async function myCam() {
         });
 };
 myCam();
-
-
-//config et recuperation de la valeur du btn submit
-let qtyProduct = '';
-let btnProduct = '';
-
+// ========================================================================
+let qtyProduct = "";
+// ========================================================================
 function addItem() {
     fetch("http://localhost:3000/api/cameras/" + id)
         .then((response) => {
             return response.json()
         })
         .then((data) => {
-            console.log("toto");
+            
             qtyProduct = parseInt(document.getElementById("input_quantity").value);
 
             let myCard = localStorage.getItem("myCard");
@@ -78,15 +68,12 @@ function addItem() {
             };
 
             let lenses = document.getElementById("opt_product").value;
-
+            
+/// selection des cameras et lenses ///
             let filterCArt = parseCard.filter(function(cam) {
-
                 return (cam._id !== data._id && cam.lenses !== lenses) || (cam._id === data._id && cam.lenses !== lenses);
-
             });
-            console.log(lenses);
-
-            console.log(parseCard);
+            
             let jsonParseCard = JSON.stringify(filterCArt);
             localStorage.setItem("myCard", jsonParseCard)
 
@@ -97,12 +84,10 @@ function addItem() {
             };
 
             alert("Ajout Produit");
-            console.log(n);
         })
 };
 //================================================== 
-// Ajouter la selection avec l'option lenses
-//id du produit 
+
 function addCard() {
     fetch("http://localhost:3000/api/cameras/" + id)
         .then((response) => {
@@ -112,18 +97,14 @@ function addCard() {
             data.lenses = document.getElementById("opt_product").value;
 
             let myCard = localStorage.getItem("myCard");
-            //**********************************************/
-
-            //condition pour le local storage================================
-            //si le localstorage est vide alors je crée un variable carstorage qui contient un objet = la valeur 'data'
+          
             if (myCard === null) {
-                let cartStorage = [data];
-                //================================================               
-                //création variable pour conversion en string
+                let cartStorage = [data];            
+                
                 let jsonCard = JSON.stringify(cartStorage);
-                //envois de la clé et de la valeur 
+                
                 localStorage.setItem("myCard", jsonCard);
-                //sinon 
+              
             } else {
                 let parseCard = JSON.parse(myCard);
 

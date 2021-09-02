@@ -2,12 +2,10 @@
 
 function removeDublon(products) {
     let cleanProducts = []
-    console.log(products);
     for (const product of products) {
         if (!cleanProducts.some(p => p._id === product._id && p.lenses === product.lenses)) {
 
             cleanProducts.push(product)
-            console.log(cleanProducts);
         }
     }
     return cleanProducts
@@ -45,7 +43,6 @@ function remvProduct(_id, lenses) {
             newCartProduct.splice(t, 1)
             let productJson = JSON.stringify(newCartProduct);
             localStorage.setItem("myCard", productJson);
-            console.log("toto");
             break;
         }
     }
@@ -88,7 +85,6 @@ function showCart() {
     let accumulatorProduct = cartProduct.reduce((accumulator, currentValue, index, array) => {
         return accumulator + currentValue.price
     }, 0);
-    console.log(accumulatorProduct);
 
     const globalPriceProduct =
         ` <tfoot class="thead-dark">
@@ -101,7 +97,6 @@ function showCart() {
 
     document.getElementById("price__product").innerHTML = (globalPriceProduct);;
 };
-
 showCart()
     //===================================fin fonction showCart=========================
 
@@ -117,7 +112,6 @@ const myFormHtml =
 
 document.getElementById("submit").innerHTML = (myFormHtml);
 
-
 //=======================================================================================
 //=============================function API post orderCam================================
 function orderCam() {
@@ -128,7 +122,6 @@ function orderCam() {
     const products = idProduct.map(obj => {
         return obj._id
     })
-    console.log(products);
 
     const apiPost = "http://localhost:3000/api/cameras/order";
 
@@ -154,7 +147,6 @@ function orderCam() {
         const contact = {
             ...formContact
         };
-        console.log(contact);
 
         // envois de l'objet dans le local storage
         localStorage.setItem("contact", JSON.stringify(contact))
@@ -164,8 +156,6 @@ function orderCam() {
             contact,
             products
         }
-        console.log(globalContent);
-
 
         try {
             const responseApi = await fetch(apiPost, {
@@ -178,7 +168,6 @@ function orderCam() {
             const objson = await responseApi.json();
             const prodObj = JSON.stringify(objson);
             localStorage.setItem("lastOrder", prodObj)
-            console.log(prodObj);
 
         } catch (e) {
             console.error(e);
