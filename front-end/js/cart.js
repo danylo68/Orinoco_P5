@@ -123,13 +123,11 @@ function orderCam() {
         return obj._id
     })
 
-    const apiPost = "http://localhost:3000/api/cameras/order";
-
     //////////////////////informations formulaire  function formData//////////////////
     const formElemt = document.querySelector("#get_form");
 
     formElemt.addEventListener("submit", async(e) => {
-    window.location.assign("order.html");
+        window.location.assign("order.html");
         e.preventDefault();
 
         // variable pour approuvé la validation
@@ -157,25 +155,28 @@ function orderCam() {
             products
         }
 
-        try {
-            const responseApi = await fetch(apiPost, {
+        fetch("http://localhost:3000/api/cameras/order", {
                 method: "POST",
                 body: JSON.stringify(globalContent),
                 headers: {
                     "Content-Type": "application/json"
                 }
-            });
-            const objson = await responseApi.json();
-            const prodObj = JSON.stringify(objson);
-            localStorage.setItem("lastOrder", prodObj)
+            })
+            .then(function(response) {
+                return response.json();
+            })
+            .then(function(myJson) {
+                console.log(myJson)
 
-        } catch (e) {
-            console.error(e);
-            alert("attention une erreur");
-        }
+                const prodObj = JSON.stringify(myJson);
+                localStorage.setItem("lastOrder", prodObj)
+            })
+            .catch(function(err) {
+                console.log(err)
+                    // Une erreur est survenue
 
+            })
     });
-};
-
+}
 orderCam()
     //============================fin de fonction================================
