@@ -9,6 +9,7 @@ function orderIdQuery() {
     const getOrder = localStorage.getItem("lastOrder");
     let newCartOrder = JSON.parse(getOrder);
 
+    console.log(newCartOrder)
     document.getElementById("container").innerHTML = ("");
 
     const storageOrder = `<div class="row">

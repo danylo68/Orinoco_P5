@@ -127,7 +127,7 @@ function orderCam() {
     const formElemt = document.querySelector("#get_form");
 
     formElemt.addEventListener("submit", async(e) => {
-        window.location.assign("order.html");
+
         e.preventDefault();
 
         // variable pour approuvé la validation
@@ -155,7 +155,7 @@ function orderCam() {
             products
         }
 
-        fetch("http://localhost:3000/api/cameras/order", {
+        const responseApi = await fetch("http://localhost:3000/api/cameras/order", {
                 method: "POST",
                 body: JSON.stringify(globalContent),
                 headers: {
@@ -166,10 +166,16 @@ function orderCam() {
                 return response.json();
             })
             .then(function(myJson) {
-                console.log(myJson)
 
-                const prodObj = JSON.stringify(myJson);
+                console.log(myJson);
+
+                const objson = myJson;
+                console.log(objson);
+
+
+                const prodObj = JSON.stringify(objson);
                 localStorage.setItem("lastOrder", prodObj)
+                window.location.assign("order.html");
             })
             .catch(function(err) {
                 console.log(err)
